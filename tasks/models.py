@@ -2,11 +2,15 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
+from taggit.managers import TaggableManager
+
 
 class TodoItem(models.Model):
+    tags = TaggableManager()
     PRIORITY_HIGH = 1
     PRIORITY_MEDIUM = 2
     PRIORITY_LOW = 3
+
 
     PRIORITY_CHOICES = [
         (PRIORITY_HIGH, "Высокий приоритет"),
